@@ -55,6 +55,8 @@ class CoolStepperConfig {
 
   final bool isHeaderEnabled;
 
+  final EdgeInsets footerPadding;
+
   const CoolStepperConfig({
     this.backText = 'PRE',
     this.nextText = 'NEXT',
@@ -69,5 +71,6 @@ class CoolStepperConfig {
     this.nextTextList,
     this.finalText = 'FINISH',
     this.isHeaderEnabled = true,
+    this.footerPadding = EdgeInsets.zero,
   });
 }

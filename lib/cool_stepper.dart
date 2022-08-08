@@ -62,6 +62,7 @@ class _CoolStepperState extends State<CoolStepper> {
       duration: const Duration(milliseconds: 300),
       curve: Curves.ease,
     );
+    return null;
   }
 
   bool _isFirst(int index) {
@@ -173,6 +174,7 @@ class _CoolStepperState extends State<CoolStepper> {
     }
 
     final buttons = Container(
+      padding: widget.config.footerPadding,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
