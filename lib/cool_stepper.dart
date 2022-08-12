@@ -207,6 +207,7 @@ class _CoolStepperState extends State<CoolStepper> {
           Visibility(
             visible: currentStep > 0,
             maintainSize: true,
+            maintainAnimation: true,
             child: FloatingActionButton(
               elevation: 0,
               onPressed: onStepBack,
