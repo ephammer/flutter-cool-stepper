@@ -212,7 +212,9 @@ class _CoolStepperState extends State<CoolStepper> {
                 Icons.arrow_back,
                 color: Colors.white,
               ),
-            ),
+            )
+          else
+            Container(),
           counter,
           FloatingActionButton(
             elevation: 0,
