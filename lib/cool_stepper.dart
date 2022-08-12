@@ -205,26 +205,23 @@ class _CoolStepperState extends State<CoolStepper> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Visibility(
-            visible: currentStep > 0,
+            visible: _isFirst(currentStep) != true,
             maintainSize: true,
             maintainAnimation: true,
+            maintainState: true,
             child: FloatingActionButton(
-              elevation: 0,
+              // elevation: 0,
               onPressed: onStepBack,
-              child: Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              ),
+              child: widget.config.backArrowIcon,
             ),
           ),
           counter,
           FloatingActionButton(
-            elevation: 0,
+            // elevation: 0,
             onPressed: onStepNext,
-            child: Icon(
-              Icons.arrow_forward,
-              color: Colors.white,
-            ),
+            child: _isLast(currentStep)
+                ? widget.config.finishArrowIcon
+                : widget.config.nextArrowIcon,
           ),
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class CoolStepperConfig {
@@ -65,6 +66,24 @@ class CoolStepperConfig {
   /// default is false
   final bool arrowButtonsEnabled;
 
+  /// The icon of the back arrow button
+  ///
+  /// default is Icons.arrow_back
+  /// [This does not apply when arrowButtonsEnabled is false]
+  final Icon backArrowIcon;
+
+  /// The icon of the next arrow button
+  ///
+  /// default is Icons.arrow_forward
+  /// [This does not apply when arrowButtonsEnabled is false]
+  final Icon nextArrowIcon;
+
+  /// The icon of the finish arrow button
+  ///
+  /// default is Icons.check
+  /// [This does not apply when arrowButtonsEnabled is false]
+  final Icon finishArrowIcon;
+
   const CoolStepperConfig({
     this.backText = 'PRE',
     this.nextText = 'NEXT',
@@ -81,5 +100,17 @@ class CoolStepperConfig {
     this.isHeaderEnabled = true,
     this.footerPadding = EdgeInsets.zero,
     this.arrowButtonsEnabled = false,
+    this.backArrowIcon = const Icon(
+      Icons.arrow_back,
+      color: Colors.white,
+    ),
+    this.nextArrowIcon = const Icon(
+      Icons.arrow_forward,
+      color: Colors.white,
+    ),
+    this.finishArrowIcon = const Icon(
+      Icons.check,
+      color: Colors.white,
+    ),
   });
 }
