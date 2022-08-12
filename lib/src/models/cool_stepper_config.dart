@@ -55,7 +55,15 @@ class CoolStepperConfig {
 
   final bool isHeaderEnabled;
 
+  /// The padding for the footer
+  ///
+  /// default is EdgeInsets.zero
   final EdgeInsets footerPadding;
+
+  /// Use arrow buttons instead of text buttons
+  ///
+  /// default is false
+  final bool arrowButtonsEnabled;
 
   const CoolStepperConfig({
     this.backText = 'PRE',
@@ -72,5 +80,6 @@ class CoolStepperConfig {
     this.finalText = 'FINISH',
     this.isHeaderEnabled = true,
     this.footerPadding = EdgeInsets.zero,
+    this.arrowButtonsEnabled = false,
   });
 }

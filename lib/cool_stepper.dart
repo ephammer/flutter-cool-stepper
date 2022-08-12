@@ -199,9 +199,38 @@ class _CoolStepperState extends State<CoolStepper> {
       ),
     );
 
+    final arrowButtons = Container(
+      padding: widget.config.footerPadding,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          FloatingActionButton(
+            elevation: 0,
+            onPressed: onStepBack,
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.grey,
+            ),
+          ),
+          counter,
+          FloatingActionButton(
+            elevation: 0,
+            onPressed: onStepNext,
+            child: Icon(
+              Icons.arrow_forward,
+              color: Colors.green,
+            ),
+          ),
+        ],
+      ),
+    );
+
     return Container(
       child: Column(
-        children: [content, buttons],
+        children: [
+          content,
+          if (widget.config.arrowButtonsEnabled) arrowButtons else buttons,
+        ],
       ),
     );
   }
