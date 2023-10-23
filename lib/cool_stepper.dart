@@ -31,6 +31,8 @@ class CoolStepper extends StatefulWidget {
   /// default is false
   final bool showErrorSnackbar;
 
+  final CoolStepperController? controller;
+
   const CoolStepper({
     Key? key,
     required this.steps,
@@ -38,6 +40,7 @@ class CoolStepper extends StatefulWidget {
     this.contentPadding = const EdgeInsets.symmetric(horizontal: 20.0),
     this.config = const CoolStepperConfig(),
     this.showErrorSnackbar = false,
+    this.controller,
   }) : super(key: key);
 
   @override
@@ -46,6 +49,16 @@ class CoolStepper extends StatefulWidget {
 
 class _CoolStepperState extends State<CoolStepper> {
   PageController? _controller = PageController();
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.controller != null) {
+      widget.controller!
+        ..onStepNext = onStepNext
+        ..onStepBack = onStepBack;
+    }
+  }
 
   int currentStep = 0;
 
@@ -235,5 +248,26 @@ class _CoolStepperState extends State<CoolStepper> {
         ],
       ),
     );
+  }
+}
+
+class CoolStepperController {
+  late VoidCallback _onStepNext;
+  late VoidCallback _onStepBack;
+
+  void next() {
+    _onStepNext();
+  }
+
+  void back() {
+    _onStepBack();
+  }
+
+  set onStepNext(VoidCallback value) {
+    _onStepNext = value;
+  }
+
+  set onStepBack(VoidCallback value) {
+    _onStepBack = value;
   }
 }
